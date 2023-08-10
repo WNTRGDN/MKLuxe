@@ -1,21 +1,23 @@
 import React, { FC } from 'react'
-import { Row, Col } from 'react-bootstrap';
-import { Alert, Carousel } from 'MKL/controls'
-import { IBlock } from 'MKL/interfaces';
+import { Row, Col } from 'react-bootstrap'
+import { Alert, Carousel, Heading } from 'MKL/blocks'
+import { IBlock } from 'MKL/interfaces'
 
 var controls: { [key: string]: any } = {
-    alert: Alert,
-    carousel: Carousel
-};
+    Alert: Alert,
+    Carousel: Carousel,
+    Heading: Heading
+}
 
 const Block: FC<IBlock> = (block) => {
-    const ControlComponent = controls[block.type]
+    const Block = controls[block.type]
+
+    console.log(block)
+
     return (
-        <Row>
-            <Col>
-                <ControlComponent {...block} />
-            </Col>
-        </Row>
+        <main className="wntrBlocks">
+            <Block {...block} />
+        </main>
     )
 }
 

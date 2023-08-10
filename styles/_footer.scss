@@ -1,0 +1,9 @@
+.footer {
+    &__main {
+        background-color: $secondary;
+        a {
+            color: $white;
+            text-decoration: none;
+        }
+    }
+}

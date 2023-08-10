@@ -1,15 +1,12 @@
 import React, { FC } from 'react'
 import { Block } from 'MKL/structures'
-import { IMain } from 'MKL/interfaces'
-import { Navigation } from 'MKL/components'
-import { Container } from 'react-bootstrap'
+import { IPage } from 'MKL/interfaces'
 
-const Main: FC<IMain> = (main) => {
+const Main: FC<IPage> = (page) => {
     return (
-        <Container>
-            <Navigation {...main} />
-            {main.blocks.map((block, index) => <Block key={index} {...block} />)}
-        </Container>
+        <>
+            {page.blocks.length ? page.blocks.map((block, index) => <Block key={index} {...block} />) : null}
+        </>
     )
 }
 

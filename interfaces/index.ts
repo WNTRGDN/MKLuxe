@@ -1,44 +1,76 @@
-export type IWebsite = {
+export interface IWebsite {
     id: number;
+    key: string;
     name: string;
-    slug: string;
-    url: IUrl;
-    level: string;
-    type: string;
-    keywords: string;
+    routes: string;
+    menus: IMenu[];
+    settings: ISettings;
+    socials: string;
+    createDate: Date;
+    updateDate: Date;
+}
+
+export interface IParams {
+    slug: string[];
+}
+
+export interface IPage {
+    id: number;
+    key: string;
+    level: number;
+    name: string;
+    url: string;
+    blocks: IBlock[];
+    metaData: IMetaData;
+    createDate: string;
+    updateDate: string;
+}
+
+export interface IMetaData {
+    title: string;
+    keywords: string[];
     description: string;
-    parent: string;
-    sitename: string;
-    children: IChild[];
-    blocks: IBlock[];
-    updateDate: string;
+    image: string;
 }
 
-export interface IMain {
-    blocks: IBlock[];
-    children: IChild[];
+export interface ISettings {
+    address: string;
+    email: string;
+    logo: string;
+    phone: string;
+    openingHours: IOpeningHours[];
 }
 
-export interface INavigation {
-    children: IChild[];
+export interface IMenu {
+    title: string;
+    links: ILink[];
+    includeHome: boolean;
+    alias: string;
+    exists: boolean;
 }
 
-export interface IUrl {
-    local: string;
-    full: string;
+export interface ILink {
+    title: string;
+    url: string;
 }
 
-export interface IChild {
-    id: number;
-    name: string;
-    slug: string;
-    url: IUrl;
-    level: string;
-    type: string;
-    parent: string;
-    updateDate: string;
+export interface IOpeningHours {
+    day: string;
+    opening: Date;
+    closing: Date;
 }
 
 export interface IBlock {
     type: string;
+    alias: string;
+}
+
+export interface IHeader {
+    settings: ISettings;
+    menus: IMenu[];
+}
+
+export interface IFooter {
+    settings: ISettings;
+    menus: IMenu[];
 }
