@@ -49,7 +49,7 @@ const Header: FC<IFooter> = (footer) => {
                           <Link key={index} href={link.url}>{link.title}</Link>
                         )}
                       </div>
-                    : null }
+                    : null}
                   </Col>
                   <Col xs={12} lg={6} className="mb-4">
                     <h4 className="fw-lighter text-uppercase mb-2 mb-lg-4">Keeping up</h4>
