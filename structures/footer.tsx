@@ -38,7 +38,7 @@ const Header: FC<IFooter> = (footer) => {
                             </div>
                           </dd>
                         </>
-                      : null }
+                      : null}
                     </dl>
                   </Col>
                   <Col xs={12} md={6} lg={3} className="mb-4">
