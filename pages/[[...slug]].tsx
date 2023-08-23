@@ -5,7 +5,8 @@ import { Header, Main, Footer } from 'MKL/structures'
 import { GetStaticPaths, GetStaticProps } from "next";
 
 export default function Index({ website, page, path }: { website: IWebsite, page: IPage, path: string }) {
-  console.log(path)
+  console.log(website)
+  console.log(page)
   return (
     <>
       <Head>
