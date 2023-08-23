@@ -4,9 +4,7 @@ import { IWebsite, IPage } from 'MKL/interfaces'
 import { Header, Main, Footer } from 'MKL/structures'
 import { GetStaticPaths, GetServerSideProps } from "next";
 
-export default function Index({ website, page, path }: { website: IWebsite, page: IPage, path: string }) {
-  console.log(website)
-  console.log(page)
+export default function Index({ website, page }: { website: IWebsite, page: IPage }) {
   return (
     <>
       <Head>
@@ -56,5 +54,5 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const website = await axios({ url: '/api/website' });
   const page = await axios({ url: `/api/page/${params?.slug && website.data.routes[path] !== undefined ? website.data.routes[path] : website.data.id}` });
 
-  return { props: { website: website.data, page: page.data, path: path } }
+  return { props: { website: website.data, page: page.data } }
 }
