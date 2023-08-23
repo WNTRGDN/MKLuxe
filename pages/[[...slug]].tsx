@@ -8,7 +8,6 @@ export default function Index({ website, page }: { website: IWebsite, page: IPag
   return (
     <>
       <Head>
-        <base href={process.env.NEXT_PUBLIC_BASE_URL} />
         <title>{(page.metaData.title ?? page.name) + ' | ' + website.name}</title>
         <meta name="description" content={page.metaData.description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

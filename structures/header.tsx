@@ -51,7 +51,7 @@ const Header: FC<IWebsite> = (website) => {
                                             : null }
                                             {menu.links.map((link, index) =>
                                                 <Nav.Item key={index} className="flex-grow-1 text-center">
-                                                    <Nav.Link as={Link} eventKey={index} href={`https://staging.mkluxe.com.au${link.url}`} className={router.asPath == link.url ? "active" : ""}>{link.title}</Nav.Link>
+                                                    <Nav.Link as={Link} eventKey={index} href={link.url} className={router.asPath == link.url ? "active" : ""}>{link.title}</Nav.Link>
                                                 </Nav.Item>
                                             )}
                                         </Nav>
