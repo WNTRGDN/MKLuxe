@@ -2,7 +2,7 @@ import axios from "axios";
 import Head from 'next/head'
 import { IWebsite, IPage } from 'MKL/interfaces'
 import { Header, Main, Footer } from 'MKL/structures'
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticPaths, GetServerSideProps } from "next";
 
 export default function Index({ website, page, path }: { website: IWebsite, page: IPage, path: string }) {
   console.log(website)
@@ -44,7 +44,7 @@ export default function Index({ website, page, path }: { website: IWebsite, page
   )
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   let path = "/";
   [params?.slug].map((slug) => path += slug?.toString().replace(",","/") + "/");
 
@@ -56,11 +56,4 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const page = await axios({ url: `/api/page/${params?.slug && website.data.routes[path] !== undefined ? website.data.routes[path] : website.data.id}` });
 
   return { props: { website: website.data, page: page.data, path: path } }
-}
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-      paths: [],
-      fallback: 'blocking'
-  }
 }
