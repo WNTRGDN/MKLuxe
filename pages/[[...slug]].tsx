@@ -2,7 +2,7 @@ import axios from "axios";
 import Head from 'next/head'
 import { IWebsite, IPage } from 'MKL/interfaces'
 import { Header, Main, Footer } from 'MKL/structures'
-import { GetStaticPaths, GetServerSideProps } from "next";
+import { GetServerSideProps } from "next";
 
 export default function Index({ website, page }: { website: IWebsite, page: IPage }) {
   return (
