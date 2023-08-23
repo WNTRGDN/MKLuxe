@@ -1,10 +1,11 @@
 import React, { FC } from 'react'
-import {useRouter} from 'next/router';
+import {useRouter} from 'next/router'
 import Link from 'next/link'
 import { IWebsite } from 'MKL/interfaces'
 import { Container, Row, Col, Ratio, Navbar, Nav, Offcanvas } from 'react-bootstrap';
 
 const Header: FC<IWebsite> = (website) => {
+    const router = useRouter()
     let menu = website.menus.filter(m => m.title === "Main Menu")[0]
     
     menu.exists = menu !== undefined;
@@ -50,7 +51,7 @@ const Header: FC<IWebsite> = (website) => {
                                             : null }
                                             {menu.links.map((link, index) =>
                                                 <Nav.Item key={index} className="flex-grow-1 text-center">
-                                                    <Nav.Link as={Link} eventKey={index} href={link.url}>{link.title}</Nav.Link>
+                                                    <Nav.Link as={Link} eventKey={index} href={link.url} className={router.asPath == link.url ? "active" : ""}>{link.title}</Nav.Link>
                                                 </Nav.Item>
                                             )}
                                         </Nav>

@@ -1,0 +1,13 @@
+.wntrJumbotronBlock {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSI1MDBweCIgdmlld0JveD0iMCAwIDEyODAgMTQwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41NikiPjxwYXRoIGQ9Ik0xMjgwIDBMNjQwIDcwIDAgMHYxNDBsNjQwLTcwIDY0MCA3MFYweiIgZmlsbC1vcGFjaXR5PSIuNSIvPjxwYXRoIGQ9Ik0xMjgwIDBIMGw2NDAgNzAgNjQwLTcweiIvPjwvZz48L3N2Zz4=), linear-gradient(180deg, $white 0%, $primary 100%);
+    background-size: 50% auto, 100% auto;
+    background-position: center top, center bottom;
+    background-repeat: repeat-x no-repeat, repeat repeat;
+    margin-bottom: 30px;
+    padding: 60px;
+    height: 500px;
+    &__container {
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+}

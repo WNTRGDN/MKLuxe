@@ -4,7 +4,8 @@ import { IWebsite, IPage } from 'MKL/interfaces'
 import { Header, Main, Footer } from 'MKL/structures'
 import { GetStaticPaths, GetStaticProps } from "next";
 
-export default function Index({ website, page }: { website: IWebsite, page: IPage }) {
+export default function Index({ website, page, path }: { website: IWebsite, page: IPage, path: string }) {
+  console.log(path)
   return (
     <>
       <Head>
@@ -44,16 +45,16 @@ export default function Index({ website, page }: { website: IWebsite, page: IPag
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   let path = "/";
-  [params?.slug].map((slug) => path += slug + "/");
+  [params?.slug].map((slug) => path += slug?.toString().replace(",","/") + "/");
 
   axios.defaults.headers.method = 'get';
   axios.defaults.baseURL = process.env.API_HOST;
   axios.defaults.headers.common['ApiKey'] = process.env.API_KEY;
 
   const website = await axios({ url: '/api/website' });
-  const page = await axios({ url: `/api/page/${params?.slug ? website.data.routes[path] : website.data.id}` });
+  const page = await axios({ url: `/api/page/${params?.slug && website.data.routes[path] !== undefined ? website.data.routes[path] : website.data.id}` });
 
-  return { props: { website: website.data, page: page.data } }
+  return { props: { website: website.data, page: page.data, path: path } }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {

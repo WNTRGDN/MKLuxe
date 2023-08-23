@@ -1,24 +1,26 @@
 import React, { FC } from 'react'
-import { Row, Col } from 'react-bootstrap'
-import { Alert, Carousel, Heading } from 'MKL/blocks'
+import { Alert, Carousel, Heading, Split, Text, Image, Jumbotron, Cards } from 'MKL/blocks'
 import { IBlock } from 'MKL/interfaces'
 
 var controls: { [key: string]: any } = {
     Alert: Alert,
     Carousel: Carousel,
-    Heading: Heading
+    Heading: Heading,
+    Split: Split,
+    Text: Text,
+    Image: Image,
+    Jumbotron: Jumbotron,
+    Cards: Cards
 }
 
 const Block: FC<IBlock> = (block) => {
-    const Block = controls[block.type]
-
-    console.log(block)
-
-    return (
-        <main className="wntrBlocks">
+    if (controls[block.type] !== undefined){
+        const Block = controls[block.type]
+        return (
             <Block {...block} />
-        </main>
-    )
+        )
+    }
+    return null
 }
 
 export default Block

@@ -2,12 +2,16 @@ export interface IWebsite {
     id: number;
     key: string;
     name: string;
-    routes: string;
+    routes: IRoute[];
     menus: IMenu[];
     settings: ISettings;
     socials: string;
     createDate: Date;
     updateDate: Date;
+}
+
+export interface IRoute {
+    [key:string]: number;
 }
 
 export interface IParams {

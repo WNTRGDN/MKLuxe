@@ -3,3 +3,10 @@
 @import '_global';
 @import '_header';
 @import '_footer';
+
+// blocks
+@import '../blocks/heading/heading';
+@import '../blocks/image/image';
+@import '../blocks/split/split';
+@import '../blocks/jumbotron/jumbotron';
+@import '../blocks/cards/cards';
