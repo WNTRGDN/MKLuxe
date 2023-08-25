@@ -1,6 +1,5 @@
 import React, { FC } from 'react'
 import moment from 'moment'
-import {useRouter} from 'next/router'
 import Link from 'next/link'
 import { IFooter } from 'MKL/interfaces'
 import { Container, Row, Col, Form, InputGroup, Button } from 'react-bootstrap'
@@ -34,7 +33,9 @@ const Header: FC<IFooter> = (footer) => {
                           <dt>Opening Hours</dt>
                           <dd>
                             <div className="d-flex flex-column">
-                              {footer.settings.openingHours.map((hour, index) => <div key={index}>{hour.day}: {hour.opening.toString()} - {hour.closing.toString()}</div>)}
+                              {footer.settings.openingHours.map((hour, index) => {
+                                return(<div key={index}>{hour.day}: {moment(new Date(hour.opening)).format('h:mma')} - {moment(new Date(hour.closing)).format('h:mma')}</div>)
+                              })}
                             </div>
                           </dd>
                         </>
@@ -48,6 +49,7 @@ const Header: FC<IFooter> = (footer) => {
                         {menu.links.map((link, index) =>
                           <Link key={index} href={link.url}>{link.title}</Link>
                         )}
+                        <Link key={900} href="https://bookings.gettimely.com/mkluxeaesthetics/bb/book">Book Now</Link>
                       </div>
                     : null}
                   </Col>

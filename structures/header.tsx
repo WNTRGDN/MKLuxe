@@ -54,6 +54,9 @@ const Header: FC<IWebsite> = (website) => {
                                                     <Nav.Link as={Link} eventKey={index} href={link.url} className={router.asPath == link.url ? "active" : ""}>{link.title}</Nav.Link>
                                                 </Nav.Item>
                                             )}
+                                            <Nav.Item key={100} className="flex-grow-1 text-center">
+                                                <Nav.Link eventKey={900} href="https://bookings.gettimely.com/mkluxeaesthetics/bb/book">Book</Nav.Link>
+                                            </Nav.Item>
                                         </Nav>
                                     </Offcanvas.Body>
                                 </Navbar.Offcanvas>

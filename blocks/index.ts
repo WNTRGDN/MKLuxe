@@ -6,6 +6,7 @@ import Text from './text'
 import Image from './image'
 import Jumbotron from './jumbotron'
 import Cards from './cards'
+import Timely from './timely'
 
 export {
     Alert,
@@ -15,5 +16,6 @@ export {
     Text,
     Image,
     Jumbotron,
-    Cards
+    Cards,
+    Timely
 }
