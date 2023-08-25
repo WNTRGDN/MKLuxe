@@ -8,7 +8,7 @@ const Image: FC<IImage> = (image) => {
             <Container className={`${image.alias}__container`}>
                 <Row className={`${image.alias}__row`}>
                     <Col className={`${image.alias}__col`}>
-                        <img className={`${image.alias}__image rounded`} src={image.src} />
+                        <img className={`${image.alias}__image rounded wntr__shadow`} src={image.src} />
                     </Col>
                 </Row>
             </Container>

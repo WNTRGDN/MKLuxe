@@ -3,11 +3,21 @@
     background-size: 50% auto, 100% auto;
     background-position: center top, center bottom;
     background-repeat: repeat-x no-repeat, repeat repeat;
-    margin-bottom: 30px;
     padding: 60px;
     height: 500px;
+    display: flex;
     &__container {
         margin-top: auto;
         margin-bottom: auto;
+    }
+    h3 {
+        background: -webkit-linear-gradient(45deg, $secondary, lighten($secondary, 10%));
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -ms-background-clip: text;
+        -o-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 30px;
     }
 }

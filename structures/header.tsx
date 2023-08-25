@@ -46,12 +46,12 @@ const Header: FC<IWebsite> = (website) => {
                                         <Nav className="header__navigation w-100" defaultActiveKey="/">
                                             {menu.includeHome ?
                                                 <Nav.Item key={100} className="flex-grow-1 text-center">
-                                                    <Nav.Link as={Link} eventKey={100} href="/">Home</Nav.Link>
+                                                    <Nav.Link as={Link} eventKey={100} href="/" scroll={false}>Home</Nav.Link>
                                                 </Nav.Item>
                                             : null }
                                             {menu.links.map((link, index) =>
                                                 <Nav.Item key={index} className="flex-grow-1 text-center">
-                                                    <Nav.Link as={Link} eventKey={index} href={link.url} className={router.asPath == link.url ? "active" : ""}>{link.title}</Nav.Link>
+                                                    <Nav.Link as={Link} scroll={false} eventKey={index} href={link.url} className={router.asPath == link.url ? "active" : ""}>{link.title}</Nav.Link>
                                                 </Nav.Item>
                                             )}
                                             <Nav.Item key={100} className="flex-grow-1 text-center">

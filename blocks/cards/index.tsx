@@ -16,7 +16,8 @@ const Cards: FC<ICards> = (cards) => {
                     {cards.items.map((item, index) =>
                         <Col xs={6} md={4} xl={3} key={index}>
                             <Link className={`${cards.alias}__card`} href={item.link}>
-                                <Image src={item.image} thumbnail />
+                                <h3 className={`${cards.alias}__title`}>{item.title}</h3>
+                                <Image src={`${item.image}?mode=crop&width=500&height=500`} thumbnail />
                             </Link>
                         </Col>
                     )}
