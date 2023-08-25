@@ -62,7 +62,7 @@ const Header: FC<IWebsite> = (website) => {
                                 </Navbar.Offcanvas>
                             </Navbar>
                         </Col>
-                    : null}
+                    : null }
                 </Row>
             </Container>
         </header>
