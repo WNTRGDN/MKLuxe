@@ -43,8 +43,12 @@ const Form: FC<IForm> = (form) => {
                                             {row.caption ? <Col md={12}><h3>{row.caption}</h3></Col> : null}
                                             {row.cols?.map((col, index) => 
                                                 <Col key={index} md={col.width}>
-                                                    {col.fields?.map(field =>
-                                                        <FormField key={field.id} {...field} fieldType={form.fieldTypes[field.fieldTypeId]} />
+                                                    {col.fields?.map(field => {
+                                                        console.log(form.fieldTypes)
+                                                        return (
+                                                            <FormField key={field.id} {...field} fieldType={form.fieldTypes[field.fieldTypeId]} />
+                                                        )
+                                                    }
                                                     )}
                                                 </Col>
                                             )}

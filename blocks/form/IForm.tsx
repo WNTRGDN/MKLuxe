@@ -8,8 +8,12 @@ export interface IForm {
     nextLabel: string;
     prevLabel: string;
     submitLabel: string;
-    fieldTypes: object;
+    fieldTypes: IFieldType[];
     allFields: IFormFieldSimple[];
+}
+
+interface IFieldType {
+    [key: number]: string;
 }
 
 interface IFormContainer {
@@ -40,7 +44,7 @@ export interface IFormField {
     containsSensitiveData: boolean;
     cssClass: string;
     dataSourceFieldKey: string;
-    fieldTypeId: string;
+    fieldTypeId: number;
     id: string;
     invalidErrorMessage: string;
     mandatory: boolean;
