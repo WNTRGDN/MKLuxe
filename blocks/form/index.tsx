@@ -15,17 +15,17 @@ const Form: FC<IForm> = (form) => {
 
         console.log(model)
 
-        await axios({
-            method: "post",
-            url: "/api/forms/submit",
-            data: model,
-            headers: {
-                "Id": event.currentTarget.id,
-                "ApiKey": process.env.NEXT_PUBLIC_API_KEY
-            }
-        }).then(response => {
-            console.log(response)
-        })
+        //await axios({
+        //    method: "post",
+        //    url: "/api/forms/submit",
+        //    data: model,
+        //    headers: {
+        //        "Id": event.currentTarget.id,
+        //        "ApiKey": process.env.NEXT_PUBLIC_API_KEY
+        //    }
+        //}).then(response => {
+        //    console.log(response)
+        //})
 
       };
 
