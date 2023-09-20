@@ -6,7 +6,7 @@ const nextConfig = {
     return [
       {
         source: '/api/:path*',
-        destination: 'https://wntr.gdn/:path*',
+        destination: 'https://api.wntr.gdn/:path*',
       },
     ]
   }
