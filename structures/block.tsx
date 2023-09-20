@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Alert, Carousel, Heading, Split, Text, Image, Jumbotron, Cards, Timely } from 'MKL/blocks'
+import { Alert, Carousel, Heading, Split, Text, Image, Jumbotron, Cards, Timely, Form } from 'MKL/blocks'
 import { IBlock } from 'MKL/interfaces'
 
 var controls: { [key: string]: any } = {
@@ -11,7 +11,8 @@ var controls: { [key: string]: any } = {
     Image: Image,
     Jumbotron: Jumbotron,
     Cards: Cards,
-    Timely: Timely
+    Timely: Timely,
+    Form: Form
 }
 
 const Block: FC<IBlock> = (block) => {

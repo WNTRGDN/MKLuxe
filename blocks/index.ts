@@ -7,6 +7,7 @@ import Image from './image'
 import Jumbotron from './jumbotron'
 import Cards from './cards'
 import Timely from './timely'
+import Form from './form'
 
 export {
     Alert,
@@ -17,5 +18,6 @@ export {
     Image,
     Jumbotron,
     Cards,
-    Timely
+    Timely,
+    Form
 }
