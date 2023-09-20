@@ -17,7 +17,7 @@ const Form: FC<IForm> = (form) => {
 
         await axios({
             method: "post",
-            url: "/api/forms/submit",
+            url: process.env.NEXT_PUBLIC_BASE_URL = "/api/forms/submit",
             data: model,
             headers: {
                 "Id": event.currentTarget.id,
