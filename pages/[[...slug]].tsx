@@ -47,8 +47,8 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   [params?.slug].map((slug) => path += slug?.toString().replace(",","/") + "/");
 
   axios.defaults.headers.method = 'get';
-  axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_HOST;
-  axios.defaults.headers.common['ApiKey'] = process.env.NEXT_PUBLIC_API_KEY;
+  axios.defaults.baseURL = process.env.API_HOST;
+  axios.defaults.headers.common['ApiKey'] = process.env.API_KEY;
 
   const website = await axios({ url: '/api/website' });
   const page = await axios({ url: `/api/page/${params?.slug && website.data.routes[path] !== undefined ? website.data.routes[path] : website.data.id}` });
