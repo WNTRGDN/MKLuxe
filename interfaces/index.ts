@@ -67,6 +67,7 @@ export interface IOpeningHours {
 export interface IBlock {
     type: string;
     alias: string;
+    order: number;
 }
 
 export interface IHeader {

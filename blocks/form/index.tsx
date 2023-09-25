@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import axios from "axios"
+import FormData from "form-data"
 import { IForm, IFormField, IHTMLFormElement } from './IForm'
 import { Container, Row, Col, Button, Form as BootstrapForm } from 'react-bootstrap'
 
@@ -8,24 +9,27 @@ const Form: FC<IForm> = (form) => {
     const handleSubmit = async (event: React.FormEvent<IHTMLFormElement>) => {
         event.preventDefault()
 
-        var model = new FormData();
-        //const target = event.currentTarget;
-
+        let model = new FormData();
+        
         form.allFields.map(field => model.append(field.alias, event.currentTarget.elements[field.alias].value))
 
-        console.log(model)
-
-        await axios({
-            method: "post",
-            url: process.env.NEXT_PUBLIC_BASE_URL + "/api/forms/submit",
-            data: model,
-            headers: {
-                "Id": event.currentTarget.id,
-                "ApiKey": process.env.NEXT_PUBLIC_API_KEY
-            }
-        }).then(response => {
-            console.log(response)
+        let config = {
+            method: 'post',
+            url: process.env.NEXT_PUBLIC_API_HOST + "/api/forms/submit",
+            headers: { 
+                'Id': event.currentTarget.id, 
+                'ApiKey': process.env.NEXT_PUBLIC_API_KEY
+            },
+            data : model
+        };
+        
+        axios.request(config)
+        .then((response) => {
+            console.log(JSON.stringify(response.data));
         })
+        .catch((error) => {
+            console.log(error);
+        });
 
       };
 
@@ -43,13 +47,7 @@ const Form: FC<IForm> = (form) => {
                                             {row.caption ? <Col md={12}><h3>{row.caption}</h3></Col> : null}
                                             {row.cols?.map((col, index) => 
                                                 <Col key={index} md={col.width}>
-                                                    {col.fields?.map(field => {
-                                                        console.log(form.fieldTypes)
-                                                        return (
-                                                            <FormField key={field.id} {...field} fieldType={form.fieldTypes[field.fieldTypeId]} />
-                                                        )
-                                                    }
-                                                    )}
+                                                    {col.fields?.map(field => <FormField key={field.id} {...field} fieldType={form.fieldTypes[field.fieldTypeId]} />)}
                                                 </Col>
                                             )}
                                         </Row>
