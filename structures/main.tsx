@@ -10,4 +10,5 @@ const Main: FC<IPage> = (page) => {
     )
 }
 
+
 export default Main
